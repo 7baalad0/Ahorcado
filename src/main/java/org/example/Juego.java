@@ -9,13 +9,71 @@ public class Juego {
 
     public static void juego(String[] args) {
         ArrayList<String> frases = new ArrayList<>(Arrays.asList(
-                "Buenos dias"
+                "el perro corre",
+                "ella canta bien",
+                "el sol brilla",
+                "la luna llena",
+                "el niño ríe",
+                "la flor crece",
+                "mi amigo llega",
+                "canta una canción",
+                "baila con ritmo",
+                "come pan caliente",
+                "toma agua fría",
+                "lee un libro",
+                "abre la puerta",
+                "mira el cielo",
+                "juega con pelota",
+                "corre muy rápido",
+                "duerme en cama",
+                "sube la escalera",
+                "bebe jugo natural",
+                "busca su sombrero",
+                "lava los platos",
+                "rompe una taza",
+                "veo una película",
+                "enciende la lámpara",
+                "toca la guitarra",
+                "ama su familia",
+                "visita la playa",
+                "compra una camisa",
+                "prepara el desayuno",
+                "lava el auto",
+                "enciende la radio",
+                "escribe una carta",
+                "siente mucha alegría",
+                "grita muy fuerte",
+                "salta la cuerda",
+                "cierra la ventana",
+                "mueve la silla",
+                "cruza la calle",
+                "rompe el silencio",
+                "pinta una pared",
+                "repara la bicicleta",
+                "camina al trabajo",
+                "llega muy tarde",
+                "vuelve a casa",
+                "viaja en tren",
+                "sueña con aventuras",
+                "pesca en río",
+                "sube a barco",
+                "duerme profundamente hoy",
+                "huele a flores",
+                "cae la lluvia",
+                "siente el viento",
+                "recibe un regalo",
+                "abre el paquete",
+                "usa sombrero nuevo",
+                "guarda sus cosas",
+                "enciende el fuego",
+                "enciende la estufa",
+                "corta una manzana",
+                "cambia la bombilla"
         ));
 
+
         Random r = new Random();
-        String fraseSecreta = frases
-                .get(r.nextInt(0, frases.size()))
-                .toLowerCase();
+        String fraseSecreta = frases.get(r.nextInt(0, frases.size())).toLowerCase();
 
         StringBuilder fraseOculta = new StringBuilder();
         for (char c : fraseSecreta.toCharArray()) {
@@ -38,11 +96,9 @@ public class Juego {
 
             boolean acierto = false;
             for (int i = 0; i < fraseOculta.length(); i++) {
-                if (fraseSecreta.charAt(i) == letra
-                        && fraseOculta.charAt(i) == '_') {
+                if (fraseSecreta.charAt(i) == letra && fraseOculta.charAt(i) == '_') {
+                    fraseOculta.setCharAt(i, letra);
                     acierto = true;
-                } else {
-                    acierto = false;
                 }
             }
 
@@ -51,12 +107,6 @@ public class Juego {
                 System.out.println("Esa letra no está!");
             } else {
                 System.out.println("Acierto!");
-                for (int i = 0; i < fraseOculta.length(); i++) {
-                    if (fraseSecreta.charAt(i) == letra
-                            && fraseOculta.charAt(i) == '_') {
-                        fraseOculta.append(letra);
-                    }
-                }
             }
         }
 
