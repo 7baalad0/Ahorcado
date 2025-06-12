@@ -86,13 +86,20 @@ public class Juego {
 
         Scanner teclado = new Scanner(System.in);
         int intentos = 6;
+        ArrayList<Character> letrasincorrectas = new ArrayList<>();
 
         while (intentos > 0 && fraseOculta.toString().contains("_")) {
             System.out.println("Intentos restantes: " + intentos);
             System.out.println(fraseOculta);
-            System.out.println("Introduce una letra: ");
+            System.out.println("Letras probadas que no estaban: " + letrasincorrectas);
 
+            System.out.println("Introduce una letra: ");
             char letra = teclado.nextLine().toLowerCase().charAt(0);
+
+            if (letrasincorrectas.contains(letra) || fraseOculta.toString().contains(String.valueOf(letra))) {
+                System.out.println("Ya has probado esa letra.");
+                continue;
+            }
 
             boolean acierto = false;
             for (int i = 0; i < fraseOculta.length(); i++) {
@@ -104,6 +111,7 @@ public class Juego {
 
             if (acierto == false) {
                 intentos--;
+                letrasincorrectas.add(letra);
                 System.out.println("Esa letra no está!");
             } else {
                 System.out.println("Acierto!");
